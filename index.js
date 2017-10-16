@@ -4,8 +4,28 @@ class Pokedex {
 		this.pokemonArray = pokemonArray;
 	}
 
-	showDetails(){
+	getInfo(id){
+		cachedFetch(`https://pokeapi.co/api/v2/pokemon/${id}`)
+		.then(r => r.json()) 
+		.then(res => { 
+			console.log(res);
+			$('#pokeInfo').append(`
+				<div class='pokeInfo'>No. ${res.id}: ${res.name}</div>
+				<div class='pokeInfo'>Weight: ${res.weight}</div>
+				<div class='pokeInfo'>Moves: 
+					<ul>
+						<li>${res.moves[0].move.name}</li>
+						<li>${res.moves[1].move.name}</li>
+						<li>${res.moves[2].move.name}</li>
+						<li>${res.moves[3].move.name}</li>
+					</ul>
+				</div>
+				<div class='pokeInfo'>Height: ${res.height}</div>
+				<div class='pokeInfo'>Experience: ${res.base_experience}</div>
+				<div class='pokeInfo'>Type: ${res.types[0].type.name}</div>
 
+			`);
+		})
 	}
 
 	listImages(){
@@ -67,10 +87,17 @@ $(function(){ // Document Ready Function
 		let id = $(this).data('count');
 		testDex.getSprite(id + 1);
 	});
+  
+  $(document).on('click', '.pokeName', function() {
+		let id = $(this).data('count');
+		testDex.getInfo(id + 1);
+	});
 
 	testDex.listAllPokemon();
 
 
 
 }); // End of document ready function
+
+// Empty cache and hard reset for nidoran
 
