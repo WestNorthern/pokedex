@@ -2,6 +2,8 @@
 class Pokedex {
 	constructor(pokemonArray){
 		this.pokemonArray = pokemonArray;
+		this.favorites = ['bulbasaur', 'pikachu', 'ditto'];
+		this.currentPokemon = 'ditto';
 	}
 
 	getInfo(id){
@@ -11,8 +13,8 @@ class Pokedex {
 		.then(res => { 
 			console.log(res);
 			$('#pokeInfo').append(`
-				<div class='pokeInfo'>No. ${res.id}: ${res.name}</div>
-				<div class='pokeInfo'>Weight: ${res.weight}</div>
+				<div class='pokeInfo'>No. ${res.id} -- ${res.name.charAt(0).toUpperCase() + res.name.slice(1)}</div>
+				<div class='pokeInfo'>Weight: ${res.weight} Kg -- Height: ${res.height} "</div>
 				<div class='pokeInfo'>Moves: 
 					<ul>
 						<li>${res.moves[0].move.name}</li>
@@ -21,11 +23,13 @@ class Pokedex {
 						<li>${res.moves[3].move.name}</li>
 					</ul>
 				</div>
-				<div class='pokeInfo'>Height: ${res.height}</div>
-				<div class='pokeInfo'>Experience: ${res.base_experience}</div>
+				<div class='pokeInfo' id='exp'>Experience: ${res.base_experience}</br>
+					<div id='this-exp' style='width: ${(res.base_experience / 320) * 50}%;'></div><div id='total-exp'></div>
+				</div>
 				<div class='pokeInfo'>Type: ${res.types[0].type.name}</div>
 
 			`);
+			this.currentPokemon = res.name;
 		})
 	}
 
@@ -50,21 +54,36 @@ class Pokedex {
 		.then(res => { 
 			console.log(res);
 			$('#images').append(`
-				<img src="${res.sprites.front_default}" />
+				<img id="sprite" src="${res.sprites.front_default}" />
 			`);
 		 })
 			
 	}
 
 	makeFavorite(){
+		if (this.favorites.includes(this.currentPokemon)){
 
+			this.favorites.splice(this.favorites.indexOf(this.currentPokemon), 1);
+		}
+		else{
+			this.favorites.push(this.currentPokemon);
+		}
+		$('#names').empty();
+		this.listAllPokemon();
 	}
 
 	listAllPokemon(){
 		for (var i = 0; i < pokemonArray.length; i++) {
+			if (this.favorites.includes(pokemonArray[i])){
+				$('#names').prepend(`
+					<div class="pokeName" data-count="${i}"> ${pokemonArray[i].charAt(0).toUpperCase() + pokemonArray[i].slice(1)} <img src="star_full.png"></div>
+				`);
+			}
+			else{
 			$('#names').append(`
-					<div class="pokeName" data-count="${i}"> ${pokemonArray[i]} </div>
-			`);
+					<div class="pokeName" data-count="${i}"> ${pokemonArray[i].charAt(0).toUpperCase() + pokemonArray[i].slice(1)} <img src="star_empty.png"></div>
+				`);
+			}
 		}
 	}
 
@@ -91,6 +110,11 @@ $(function(){ // Document Ready Function
 		testDex.getSprite(id + 1);
 		testDex.getInfo(id + 1);
 		
+	});
+
+	$(document).on('click', '#favButton', function() {
+		testDex.makeFavorite();
+		console.log(testDex.favorites);
 	});
   
 
