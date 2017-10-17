@@ -5,6 +5,7 @@ class Pokedex {
 	}
 
 	getInfo(id){
+		
 		cachedFetch(`https://pokeapi.co/api/v2/pokemon/${id}`)
 		.then(r => r.json()) 
 		.then(res => { 
@@ -28,7 +29,7 @@ class Pokedex {
 		})
 	}
 
-	listImages(){
+	listImages(){ // Never Use This!
 		for (var i = 0; i < pokemonArray.length; i++) {
 			cachedFetch(`https://pokeapi.co/api/v2/pokemon/${pokemonArray[i]}`)
 			.then(r => r.json()) 
@@ -43,6 +44,7 @@ class Pokedex {
 	}
 
 	getSprite(id){
+		
 		cachedFetch(`https://pokeapi.co/api/v2/pokemon/${id}`)
 		.then(r => r.json()) 
 		.then(res => { 
@@ -69,12 +71,12 @@ class Pokedex {
 	sortPokemon(){
 
 	}
-
-	cacheCall(url, func){
-		cachedFetch(url) 
-		.then(r => r.json()) 
-		.then(res => { func() })
-	}
+  
+  emptyInfo(){
+  	
+  	$('#images').empty();
+  	$('#pokeInfo').empty();
+  }
 }
 
 
@@ -85,13 +87,12 @@ $(function(){ // Document Ready Function
 
 	$(document).on('click', '.pokeName', function() {
 		let id = $(this).data('count');
+		testDex.emptyInfo();
 		testDex.getSprite(id + 1);
+		testDex.getInfo(id + 1);
+		
 	});
   
-  $(document).on('click', '.pokeName', function() {
-		let id = $(this).data('count');
-		testDex.getInfo(id + 1);
-	});
 
 	testDex.listAllPokemon();
 
