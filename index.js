@@ -131,7 +131,7 @@ class Pokedex {
 	listAllPokemon(){
 		for (var i = 0; i < pokemonArray.length; i++) {
 			if (this.favorites.includes(pokemonArray[i])){
-				$('#names').prepend(`
+				$('#names').append(`
 					<div class="pokeName" data-count="${i}"> ${pokemonArray[i].charAt(0).toUpperCase() + pokemonArray[i].slice(1)} <img src="star_full.png"></div>
 				`);
 			}
@@ -144,8 +144,20 @@ class Pokedex {
 		}
 	}
 
-	sortPokemon(){
-    // Let user choose whether to sort by number, pokemon caught, favorites, etc...
+	sortPokemonByFaves(){
+    for (var i = 0; i < pokemonArray.length; i++) {
+			if (this.favorites.includes(pokemonArray[i])){
+				$('#names').prepend(`
+					<div class="pokeName" data-count="${i}"> ${pokemonArray[i].charAt(0).toUpperCase() + pokemonArray[i].slice(1)} <img src="star_full.png"></div>
+				`);
+			}
+			else
+			{
+			$('#names').append(`
+					<div class="pokeName" data-count="${i}"> ${pokemonArray[i].charAt(0).toUpperCase() + pokemonArray[i].slice(1)} <img src="star_empty.png"></div>
+				`);
+			}
+		}
 	}
   
   emptyInfo(){
@@ -172,6 +184,11 @@ $(function(){ // Document Ready Function
 	$(document).on('click', '#favButton', function() {
 		testDex.makeFavorite();
 		console.log(testDex.favorites);
+	});
+
+	$(document).on('click', '#a-button', function() {
+		$('#names').empty();
+    testDex.sortPokemonByFaves();
 	});
   
 
