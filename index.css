@@ -14,7 +14,6 @@ body {
 	left: 4px;
 	background: darkred;
 	position: absolute;
-	/*position: absolute;*/
 	text-align: center;
 	overflow: scroll;
 	display: inline;
@@ -51,9 +50,6 @@ body {
 	background: red;
 	left: 0;
 	top: 0;
-	/*position: relative;*/
-	/*border: 2px solid red;*/
-	/*text-align: left;*/
 	display: inline;
 	box-sizing: border-box;
 	border-radius: 5px;
@@ -66,7 +62,6 @@ body {
 	top: 6px;
 	left: 6px;
 	background: darkred;
-	/*position: relative;*/
 	text-align: center;
 	position: absolute;
 	display: inline;
@@ -90,7 +85,6 @@ body {
 	border: 5px solid black;
 	text-align: left;
 	padding: 5px;
-	/*-webkit-clip-path: polygon(13% 0, 100% 0, 100% 100%, 0 100%, 0 24%);*/
 }
 
 #pokeInfo {
@@ -173,7 +167,6 @@ li {
 #favButton {
 	width:30px;
 	height: 30px;
-	/*background-image: url('star_full.png');*/
 	background: yellow;
 	position: absolute;
 	bottom: 10px;
@@ -209,8 +202,6 @@ li {
 	border: 5px solid blue;
 	border-radius: 2px;
 	background: lightblue;
-	/*float: left;*/
-	/*margin: 0 auto;*/
 }
 
 #blink-wrapper {
