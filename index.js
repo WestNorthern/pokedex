@@ -4,6 +4,7 @@ class Pokedex {
 		this.pokemonArray = pokemonArray;
 		this.favorites = ['bulbasaur', 'pikachu', 'ditto'];
 		this.currentPokemon = 'ditto';
+		this.littleSprites = [];
 	}
 
 	getInfo(id){
@@ -48,6 +49,7 @@ class Pokedex {
 	}
 
 	getSprite(id){
+
 		
 		cachedFetch(`https://pokeapi.co/api/v2/pokemon/${id}`)
 		.then(r => r.json()) 
@@ -56,7 +58,51 @@ class Pokedex {
 			$('#images').append(`
 				<img id="sprite" src="${res.sprites.front_default}" />
 			`);
-		 })
+
+			this.littleSprites = [];
+			this.currentPokemon = res.name;
+
+			$('#sprites').empty();
+
+			if(res.sprites.back_female !== null){
+				this.littleSprites.push(res.sprites.back_female);
+			}
+			if(res.sprites.back_shiny_female !== null){
+				this.littleSprites.push(res.sprites.back_shiny_female);
+			}
+			if(res.sprites.back_default !== null){
+				this.littleSprites.push(res.sprites.back_default);
+			}
+			if(res.sprites.front_female !== null){
+				this.littleSprites.push(res.sprites.front_female);
+			}
+			if(res.sprites.front_shiny_female !== null){
+				this.littleSprites.push(res.sprites.front_shiny_female);
+			}
+			if(res.sprites.back_shiny !== null){
+				this.littleSprites.push(res.sprites.back_shiny);
+			}
+			if(res.sprites.front_default !== null){
+				this.littleSprites.push(res.sprites.front_default);
+			}
+			if(res.sprites.front_shiny !== null){
+				this.littleSprites.push(res.sprites.front_shiny);
+			}
+      for (var i = 0; i < this.littleSprites.length; i++) {
+				$('#sprites').append(`
+				<img id="little-sprites" src=${this.littleSprites[i]} />
+			  `);
+			}
+			if (this.favorites.includes(this.currentPokemon)){
+				$('#favButton').attr('style', 'background: yellow;');
+			}
+			else{
+				$('#favButton').attr('style', 'background: white;');
+			}
+		})
+			
+			console.log(this.littleSprites);
+		
 			
 	}
 
@@ -70,6 +116,14 @@ class Pokedex {
 		}
 		$('#names').empty();
 		this.listAllPokemon();
+
+		if (this.favorites.includes(this.currentPokemon)){
+				$('#favButton').attr('style', 'background: yellow;');
+			}
+			else{
+				$('#favButton').attr('style', 'background: white;');
+			}
+
 	}
 
 	listAllPokemon(){

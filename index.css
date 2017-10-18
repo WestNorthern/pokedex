@@ -86,7 +86,9 @@
 
 #poke-info {
 	margin: 0 auto;
-	position: relative;
+	position: absolute;
+	top: 100px;
+	left: 15%;
 }
 
 ul{
@@ -105,7 +107,7 @@ li {
 
 .img-wrapper {
 	height: 200px;
-	width: 300px;
+	width: 220px;
 	margin: 100px auto;
 	position: relative;
 	background: gray;
@@ -113,9 +115,15 @@ li {
 
 }
 
+#images {
+	width:200px;
+	height:200px;
+	margin: 0 auto;
+}
+
 #sprite {
 	height: 70%;
-	width: 95%;
+	width: 93%;
 	left: 6px;
 	top: 6px;
 	background: aliceblue;
@@ -124,6 +132,7 @@ li {
 	border-radius: 5px
 
 }
+
 
 #exp {
 	position: relative;
@@ -150,12 +159,15 @@ li {
 }
 
 #favButton {
-	width:50px;
-	height: 50px;
+	width:30px;
+	height: 30px;
+	/*background-image: url('star_full.png');*/
 	background: yellow;
 	position: absolute;
-	bottom: 50px;
-	right: 60px;
+	bottom: 10px;
+	right: 10px;
+	z-index: 1;
+  -webkit-clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
 
 }
 
@@ -170,4 +182,21 @@ li {
 	height: 14px;
 	width: 14px;
 }
+
+#sprites {
+	position: relative;
+	width: 100%;
+	height: 300px;
+
+}
+
+#little-sprites{
+	width: 100px;
+	height: 100px;
+	border: 5px solid blue;
+	border-radius: 2px;
+	/*float: left;*/
+	/*margin: 0 auto;*/
+}
+
 
