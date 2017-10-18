@@ -16,7 +16,12 @@ class Pokedex {
 			$('#pokeInfo').append(`
 				<div class='pokeInfo'>No. ${res.id} -- ${res.name.charAt(0).toUpperCase() + res.name.slice(1)}</div>
 				<div class='pokeInfo'>Weight: ${res.weight} Kg -- Height: ${res.height} "</div>
-				<div class='pokeInfo'>Moves: 
+				
+				<div class='pokeInfo' id='exp'>Experience: ${res.base_experience}</br>
+					<div id='this-exp' style='width: ${(res.base_experience / 320) * 50}%;'></div><div id='total-exp'></div>
+				</div>
+				<div class='pokeInfo'>Type: ${res.types[0].type.name}</div>
+				<div class='pokeInfo'><span style='text-align: left;'>Moves:</span> 
 					<ul>
 						<li>${res.moves[0].move.name}</li>
 						<li>${res.moves[1].move.name}</li>
@@ -24,10 +29,6 @@ class Pokedex {
 						<li>${res.moves[3].move.name}</li>
 					</ul>
 				</div>
-				<div class='pokeInfo' id='exp'>Experience: ${res.base_experience}</br>
-					<div id='this-exp' style='width: ${(res.base_experience / 320) * 50}%;'></div><div id='total-exp'></div>
-				</div>
-				<div class='pokeInfo'>Type: ${res.types[0].type.name}</div>
 
 			`);
 			this.currentPokemon = res.name;
