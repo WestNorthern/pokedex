@@ -19,8 +19,8 @@ body {
 	overflow: scroll;
 	display: inline;
 	box-sizing: border-box;
+  -webkit-clip-path: polygon(57% 1%, 71% 12%, 100% 14%, 100% 100%, 0 100%, 1% 0);
 
-	-webkit-clip-path: polygon(35% 0, 56% 16%, 100% 18%, 100% 100%, 0 99%, 0 57%, 0 0);
 }
 
 .list-wrapper{
@@ -36,7 +36,8 @@ body {
 	text-align: center;
 	display: inline;
 	box-sizing: border-box;
-		-webkit-clip-path: polygon(35% 0, 56% 16%, 100% 18%, 100% 100%, 0 99%, 0 57%, 0 0);
+	-webkit-clip-path: polygon(57% 1%, 71% 12%, 100% 14%, 100% 100%, 0 100%, 1% 0);
+
 
 }
 
@@ -213,12 +214,13 @@ li {
 
 #blink-wrapper {
   position: absolute;
-  width: 50px;
-  height: 50px;
+  width: 54px;
+  height: 56px;
   background: darkgrey;
   border-radius: 50%;
   left: 10px;
   top: 10px;
+  border: 2px inset darkorchid;
 }
 
 #blink {
@@ -229,5 +231,93 @@ li {
 	left: 2.5px;
 	top: 2.5px;
 	background: yellow;
+  border: 2px inset darkorchid;
+}
+
+#green-wrapper {
+  position: absolute;
+  width: 34px;
+  height: 19px;
+  background: darkgrey;
+  border-radius: 7%;
+  left: 70px;
+  top: 10px;
+  z-index: 3;
+  border: 2px inset darkorchid;
+}
+
+#green {
+	position: absolute;
+	width: 25px;
+	height: 10px;
+	border-radius: 7%;
+	left: 2.5px;
+	top: 2.5px;
+	background: green;
+  border: 2px inset darkorchid;
+}
+
+#yellow-wrapper {
+  position: absolute;
+  width: 34px;
+  height: 19px;
+  background: darkgrey;
+  border-radius: 7%;
+  left: 120px;
+  top: 10px;
+  z-index: 3;
+  border: 2px inset darkorchid;
+}
+
+#yellow {
+	position: absolute;
+	width: 25px;
+	height: 10px;
+	border-radius: 7%;
+	left: 2.5px;
+	top: 2.5px;
+	background: yellow;
+  border: 2px inset darkorchid;
+}
+
+#blue-wrapper {
+  position: absolute;
+  width: 34px;
+  height: 19px;
+  background: darkgrey;
+  border-radius: 7%;
+  left: 170px;
+  top: 10px;
+  z-index: 3;
+  border: 2px inset darkorchid;
+}
+
+#blue {
+	position: absolute;
+	width: 25px;
+	height: 10px;
+	border-radius: 7%;
+	left: 2.5px;
+	top: 2.5px;
+	background: blue;
+  border: 2px inset darkorchid;
+}
+
+.flash {
+
+  -webkit-animation: flash 1s ease-out;
+  -webkit-animation-iteration-count: 27000;
+}
+
+@keyframes flash {
+    0% { background-color: transparent; }
+    50% { background-color: #fbf8b2; }
+    100% { background-color: transparent; }
+}
+
+@-webkit-keyframes flash {
+    0% { background-color: lightyellow; }
+    50% { background-color: yellow; }
+    100% { background-color: lightyellow; }
 }
 
