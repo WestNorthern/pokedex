@@ -14,8 +14,8 @@ class Pokedex {
 		.then(res => { 
 			console.log(res);
 			$('#pokeInfo').append(`
-				<div class='pokeInfo'>No. ${res.id} -- ${res.name.charAt(0).toUpperCase() + res.name.slice(1)}</div>
-				<div class='pokeInfo'>Weight: ${res.weight} Kg -- Height: ${res.height} "</div>
+				<div class='pokeInfo'>数: ${res.id} -- ${res.name.charAt(0).toUpperCase() + res.name.slice(1)}</div>
+				<div class='pokeInfo'>Weight: ${res.weight} キ -- Height: ${res.height} ウ</div>
 				
 				<div class='pokeInfo' id='exp'>Experience: ${res.base_experience}</br>
 					<div id='this-exp' style='width: ${(res.base_experience / 320) * 50}%;'></div><div id='total-exp'></div>
