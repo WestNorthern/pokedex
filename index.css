@@ -57,6 +57,7 @@ body {
 	display: inline;
 	box-sizing: border-box;
 	border-radius: 5px;
+	border-top-left-radius: 8%;
 }
 
 .display-box {
@@ -321,3 +322,122 @@ li {
     100% { background-color: lightyellow; }
 }
 
+#dpad-wrapper {
+  position: absolute;
+  width: 80px;
+  height: 90px;
+  background: darkgrey;
+  left: 5px;
+  top: 450px;
+  z-index: 3;
+  /*border: 2px inset darkorchid;*/
+  -webkit-clip-path: polygon(10% 25%, 35% 25%, 35% 0%, 65% 0%, 65% 25%, 90% 25%, 90% 50%, 65% 50%, 65% 80%, 35% 80%, 35% 50%, 10% 50%);
+}
+
+#dpad {
+	position: absolute;
+	width: 70px;
+	height: 80px;
+	left: 5px;
+	top: 4px;
+	background: black;
+  /*border: 2px inset darkorchid;*/
+  -webkit-clip-path: polygon(10% 25%, 35% 25%, 35% 0%, 65% 0%, 65% 25%, 90% 25%, 90% 50%, 65% 50%, 65% 80%, 35% 80%, 35% 50%, 10% 50%);
+}
+
+#clasp-one-wrapper {
+  position: absolute;
+  width: 50px;
+  height: 90px;
+  background: black;
+  left: 465px;
+  top: 25px;
+  z-index: 3;
+  /*border: 2px inset darkorchid;*/
+  -webkit-clip-path: polygon(0 30%, 16% 16%, 0 0, 100% 0, 86% 20%, 100% 31%, 100% 71%, 82% 81%, 100% 100%, 0 100%, 16% 80%, 0 68%);
+}
+
+#clasp-one {
+	position: absolute;
+	width: 40px;
+	height: 80px;
+	left: 5px;
+	top: 4px;
+	background: darkgrey;
+  /*border: 2px inset darkorchid;*/
+  -webkit-clip-path: polygon(0 30%, 16% 16%, 0 0, 100% 0, 86% 20%, 100% 31%, 100% 71%, 82% 81%, 100% 100%, 0 100%, 16% 80%, 0 68%);
+}
+
+#clasp-two-wrapper {
+  position: absolute;
+  width: 50px;
+  height: 90px;
+  background: black;
+  left: 465px;
+  bottom: 25px;
+  z-index: 3;
+  -webkit-clip-path: polygon(0 30%, 16% 16%, 0 0, 100% 0, 86% 20%, 100% 31%, 100% 71%, 82% 81%, 100% 100%, 0 100%, 16% 80%, 0 68%);
+}
+
+#clasp-two {
+	position: absolute;
+	width: 40px;
+	height: 80px;
+	left: 5px;
+	top: 4px;
+	background: darkgrey;
+  -webkit-clip-path: polygon(0 30%, 16% 16%, 0 0, 100% 0, 86% 20%, 100% 31%, 100% 71%, 82% 81%, 100% 100%, 0 100%, 16% 80%, 0 68%);
+}
+
+.poke {
+ position: absolute;
+ background: darkred;
+ color: ghostwhite;
+ z-index: 3;
+ top: 15px;
+ font-family: 'Pacifico';
+ left: 330px;
+ font-size: 2.5em;
+}
+
+.dex {
+ position: absolute;
+ background: darkred;
+ color: ghostwhite;
+ z-index: 3;
+ top: 15px;
+ font-family: 'Pacifico';
+ left: 550px;
+ font-size: 2.5em;
+
+}
+
+#a-button {
+  position: absolute;
+	width: 54px;
+	height: 56px;
+	background: blue;
+	border-radius: 50%;
+	left: 800px;
+	top: 500px;
+	border: 2px inset darkorchid;
+  text-align: center;
+  line-height: 56px;
+  color: lime;
+  font-size: 1.3em;
+}
+
+#b-button {
+  position: absolute;
+  width: 54px;
+  height: 56px;
+  background: lime;
+  border-radius: 50%;
+  left: 875px;
+  top: 500px;
+  border: 2px inset darkorchid;
+	text-align: center;
+	line-height: 56px;
+	color: blue;
+	font-size: 1.3em;
+}
