@@ -2,8 +2,8 @@
 class Pokedex {
 	constructor(pokemonArray){
 		this.pokemonArray = pokemonArray;
-		this.favorites = ['bulbasaur', 'pikachu', 'ditto'];
-		this.currentPokemon = 'ditto';
+		this.favorites = [];
+		this.currentPokemon = '';
 		this.littleSprites = [];
 	}
 
@@ -102,9 +102,7 @@ class Pokedex {
 			}
 		})
 			
-			console.log(this.littleSprites);
-		
-			
+		console.log(this.littleSprites);
 	}
 
 	makeFavorite(){
@@ -115,15 +113,18 @@ class Pokedex {
 		else{
 			this.favorites.push(this.currentPokemon);
 		}
+
 		$('#names').empty();
+
 		this.listAllPokemon();
 
 		if (this.favorites.includes(this.currentPokemon)){
 				$('#favButton').attr('style', 'background: yellow;');
-			}
-			else{
+		}
+		else
+		{
 				$('#favButton').attr('style', 'background: white;');
-			}
+		}
 
 	}
 
@@ -134,7 +135,8 @@ class Pokedex {
 					<div class="pokeName" data-count="${i}"> ${pokemonArray[i].charAt(0).toUpperCase() + pokemonArray[i].slice(1)} <img src="star_full.png"></div>
 				`);
 			}
-			else{
+			else
+			{
 			$('#names').append(`
 					<div class="pokeName" data-count="${i}"> ${pokemonArray[i].charAt(0).toUpperCase() + pokemonArray[i].slice(1)} <img src="star_empty.png"></div>
 				`);
@@ -143,7 +145,7 @@ class Pokedex {
 	}
 
 	sortPokemon(){
-
+    // Let user choose whether to sort by number, pokemon caught, favorites, etc...
 	}
   
   emptyInfo(){
@@ -179,5 +181,5 @@ $(function(){ // Document Ready Function
 
 }); // End of document ready function
 
-// Empty cache and hard reset for nidoran
+// Empty cache and hard reset for nidoran?
 
